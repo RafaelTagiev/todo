@@ -1,0 +1,160 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "sass:color";
+
+.todo-section {
+
+    .todo {
+        width: min(500px, 100%);
+        padding: 0 16px;
+        margin: 60px auto;
+        border-radius: 20px;
+        background: color.adjust(v.$white, $alpha: -0.85);
+        box-shadow: color.adjust(v.$white, $alpha: -0.75) 0 0 20px 2px;
+
+        @include m.d-flex(center, center, nowrap, column, 0, 0);
+
+        &__input-box {
+            padding: 16px 0;
+            width: 100%;
+
+            @include m.d-flex(space-between, center, nowrap, row, 0, 0);
+
+            @media (max-width: v.$media_sm) {
+                flex-direction: column;
+                row-gap: 15px;
+            }
+
+            .todo-input {
+                width: 100%;
+                padding: 5px;
+                border-radius: 4px;
+                box-shadow: v.$secondary 0 5px 10px 3px;
+            }
+
+            .todo-add-btn {
+                padding: 5px 30px;
+                margin-left: 15px;
+                border-radius: 5px;
+                text-align: center;
+                white-space: nowrap;
+                background-color: v.$primary;
+                box-shadow: v.$secondary 0 5px 10px 3px;
+                transition: all .3s;
+
+                @include m.font(16px, 600, v.$white);
+
+                &:hover {
+                    scale: 1.1;
+                    box-shadow: color.adjust(v.$white, $alpha: -0.65) 0 0 10px 0px;
+                }
+            }
+        }
+
+
+        &__search-box {
+            width: 100%;
+
+            .todo-search {
+                width: 100%;
+                height: 25px;
+                padding: 5px;
+                border-radius: 4px;
+                box-shadow: v.$secondary 0 5px 10px 3px;
+            }
+        }
+
+        &__list {
+            width: 100%;
+            padding: 16px 0;
+
+            @include m.d-flex(center, center, nowrap, column, 0, 10px);
+
+            & h3 {
+                color: v.$white;
+                margin-left: 10px;
+            }
+
+            &-item {
+                width: 100%;
+                padding: 10px 16px;
+                border-radius: 4px;
+                background-color: v.$wheat;
+                box-shadow: v.$secondary 0 5px 10px 3px;
+
+                @include m.d-flex(space-between, start, nowrap, row, 15px, 0);
+
+                &:has(.todo__item-checkbox:checked) {
+                    background-color: #70db70;
+                }
+
+                .todo__item-checkbox {
+                    align-self: center;
+                    accent-color: v.$green;
+                    width: 25px;
+                    height: 25px;
+
+                    &:checked~.todo__item-info {
+                        text-decoration: line-through;
+                    }
+
+                }
+
+                .todo__item-info {
+                    flex-grow: 1;
+                    max-width: 350px;
+
+                    .todo__info-text {
+                        @include m.font(18px, 600, v.$secondary);
+                    }
+
+                    .todo__info-date {
+                        display: inline-block;
+                        margin-top: 15px;
+                        opacity: 0.7;
+
+                        @include m.font(14px, 100, v.$secondary);
+                    }
+                }
+
+                .todo__item-edit-btn {
+                    display: block;
+                    justify-self: end;
+                    width: 25px;
+                    height: 25px;
+                    background: url(../assets/icon/pen-icon.png) center / 50% no-repeat, v.$primary;
+                }
+
+                .todo__item-remove-btn {
+                    display: block;
+                    justify-self: end;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 4px;
+                    font-weight: 900;
+                    background-color: v.$primary;
+
+                    &:disabled {
+                        opacity: 0.7;
+                    }
+                }
+            }
+
+        }
+
+        &__count-box {
+            width: 100%;
+            padding: 0 20px 16px;
+
+            @include m.d-flex(space-between, start, nowrap, row, 0, 0);
+
+            .todo-count {
+                @include m.font(14px, 500, v.$white);
+            }
+
+            .todo-count-btn {
+                @include m.font(14px, 900, v.$primary);
+            }
+        }
+    }
+}

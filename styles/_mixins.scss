@@ -1,0 +1,32 @@
+@mixin d-flex($justify: center, $align: center, $wrap: nowrap, $direction: row, $gapColumn: 0, $gapRaw: 0) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+    flex-direction: $direction;
+    column-gap: $gapColumn;
+    row-gap: $gapRaw;
+}
+
+@mixin font($size: 16px, $weight: 400, $color: #fff, $style: normal) {
+    font: {
+        size: $size;
+        weight: $weight;
+        style: $style;
+    }
+    
+    color: $color;
+}
+
+@mixin pos($type: relative, $zIndex: 1, $inset: -1, $top-or-bottom: top, $left-or-right: left, $value1: 0, $value2: 0) {
+    position: $type;
+    z-index: $zIndex;
+
+    @if $inset > -1 {
+        inset: $inset;
+    }
+    @else {
+        #{$top-or-bottom}: $value1;
+        #{$left-or-right}: $value2;
+    }
+}
