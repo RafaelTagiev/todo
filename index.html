@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/utils.js" type="module"></script>
+    <script src="js/main.js" defer type="module"></script>
+    <title>todo app</title>
+</head>
+
+<body>
+    <section class="todo-section">
+        <div class="container">
+            <div class="todo">
+                <div class="todo__text-field-wrapper">
+                    <input class="todo-input" type="text" placeholder="add todo" data-text-field>
+                    <button class="todo-add-btn" type="button" data-todo-btn>add todo</button>
+                </div>
+                <div class="todo__search-box">
+                    <input class="todo__search-input" type="text" placeholder="search todo" data-search-field>
+                </div>
+                <ul class="todo__list" data-todo-list>
+                </ul>
+                <div class="todo__count-box">
+                    <p class="todo__count" data-todo-count>0 items completed</p>
+                    <button class="todo__count-box-btn" data-remove-all>Clear Completed</button>
+                </div>
+                <template data-todo-template>
+                    <li class="todo__list-item">
+                        <input class="todo__item-checkbox" type="checkbox" data-todo-list-checkbox>
+                        <div class="todo__item-info">
+                            <p class="todo__info-text" data-todo-text></p>
+                            <span class="todo__info-date" data-todo-date></span>
+                        </div>
+                        <button class="todo__item-edit-btn" data-todo-edit-btn></button>
+                        <button class="todo__item-remove-btn" data-todo-remove-btn>&#10006;</button>
+                    </li>
+                </template>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
