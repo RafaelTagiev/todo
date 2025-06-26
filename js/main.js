@@ -92,6 +92,13 @@ const createTodoLayout = (todo) => {
     const checkBox = todoElement.querySelector('[data-todo-list-checkbox]');
     checkBox.checked = todo.completed;
 
+    const todoInfo = todoElement.querySelector('[data-todo-info]');
+    if (todo.completed === true) {
+        todoInfo.classList.value += ' todo__item-info--checked';
+    } else {
+        todoInfo.classList.remove = 'todo__item-info--checked';
+    }
+
     const todoText = todoElement.querySelector('[data-todo-text]');
     todoText.textContent = todo.text;
 

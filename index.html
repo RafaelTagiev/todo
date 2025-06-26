@@ -29,13 +29,17 @@
                 </div>
                 <template data-todo-template>
                     <li class="todo__list-item">
-                        <input class="todo__item-checkbox" type="checkbox" data-todo-list-checkbox>
-                        <div class="todo__item-info">
+                        <div class="todo__item-checkbox-wrapper">
+                            <input class="todo__item-checkbox" type="checkbox" data-todo-list-checkbox>
+                        </div>
+                        <div class="todo__item-info" data-todo-info>
                             <p class="todo__info-text" data-todo-text></p>
                             <span class="todo__info-date" data-todo-date></span>
                         </div>
-                        <button class="todo__item-edit-btn" data-todo-edit-btn></button>
-                        <button class="todo__item-remove-btn" data-todo-remove-btn>&#10006;</button>
+                        <div class="todo__item-btn-wrapper">
+                            <button class="todo__item-edit-btn" data-todo-edit-btn></button>
+                            <button class="todo__item-remove-btn" data-todo-remove-btn>&#10006;</button>
+                        </div>
                     </li>
                 </template>
             </div>
